@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         onetimeVNPTSmartCA.initSDK(config)
 
         //....
+    }
 ```
 
 Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</span> như dưới
@@ -146,7 +147,7 @@ fun getWaitingTransaction(transId: String) {
         } catch (ex: Exception) {
             throw  ex;
         }
-    }
+}
 ```
 
 App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID của giao dịch, SDK sẽ mở giao diện xác nhận ký số và gọi láy thông tin giao dịch với ID tương ứng.
@@ -157,5 +158,5 @@ App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID củ
  override fun onDestroy() {
         super.onDestroy()
         onetimeVNPTSmartCA.destroySDK()
-    }
+ }
 ```
