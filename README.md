@@ -9,8 +9,7 @@ Project sử dụng Java 8
 
 <font size="4"> **2. Hướng dẫn tích hợp:**</font>
 
-<font size="3">**Bước 1:**</font> Tải về bộ tích hợp SDK theo đường dẫn [https://smartca.vnpt.vn/](https://smartca.vnpt.vn/) và giải nén ra thư mục.
-![alt text](extracted-folder.png )
+<font size="3">**Bước 1:**</font> Tải về bộ tích hợp SDK và giải nén ra thư mục.
 
 <font size="3">**Bước 2:**</font> Cấu hình file <span style="color:red"> build.grandle</span> như dưới
 
@@ -39,7 +38,6 @@ dependencies {
 * Luồng kích hoạt tài khoản **One Time CA VNPT SmartCA**/ lấy accessToken và credentialID
 * Luồng xác nhận giao dịch ký số
 
-![alt text](diagram.png "Title")
 
 Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng chính
 ```Kotlin
