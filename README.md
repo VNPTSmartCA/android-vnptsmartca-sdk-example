@@ -19,7 +19,7 @@ Project sử dụng Java 8
 repositories {
     maven {
         //Đường dẫn đến folder repo ở thư mục được giải nén ở bước 1
-        url '..path_to_repo_folder\\repo'
+        url '..path_to_android_one_time_ca_sdk_folder\\repo'
     }
     maven {
         url "https://storage.googleapis.com/download.flutter.io"
@@ -27,8 +27,8 @@ repositories {
 }
 
 dependencies {
-  // ...
- implementation files('..path_to_one_time_ca_lib\\onetimeca_vnpt_smartca_library-release.aar')
+    // ...
+    implementation files('..android_one_time_ca_sdk\\onetimeca_vnpt_smartca_library.aar')
     debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         //....
 ```
 
-Cấu hình giao diện trên file  <span style="color:red"> AndroidManifest.xml</span> như dưới
+Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</span> như dưới
 
 ```xml
  <application
