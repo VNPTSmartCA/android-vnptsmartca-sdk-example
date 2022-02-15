@@ -87,12 +87,12 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
 
 ```Kotlin
 //...
-        val btn_click_me = findViewById(R.id.button) as Button
+    val btn_click_me = findViewById(R.id.button) as Button
 
-        btn_click_me.setOnClickListener {
-            val transId = edit_text_trans.text.toString()
-            getAuthentication(transId)
-        }
+    btn_click_me.setOnClickListener {
+        val transId = edit_text_trans.text.toString()
+        getAuthentication(transId)
+    }
 //...
 
 fun getAuthentication(transId: String) {
