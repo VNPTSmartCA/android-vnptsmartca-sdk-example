@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     // ...
-    implementation files('..android_one_time_ca_sdk\\onetimeca_vnpt_smartca_library.aar')
+    implementation files('..path_to_android_one_time_ca_sdk_folder\\onetimeca_vnpt_smartca_library.aar')
     debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
