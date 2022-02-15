@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         //Cấu hình môi trường Dev-test hay Production cùa SmartCA
         config.environment = SmartCAEnvironment.DEMO_ENV
         //Cấu hình ngôn ngữ app (vi/en)
-        config.lang = "vi"
+        config.lang = SmartCALanguage.VI
         onetimeVNPTSmartCA.initSDK(config)
 
         //....
