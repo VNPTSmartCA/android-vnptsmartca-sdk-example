@@ -33,10 +33,10 @@ dependencies {
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
 ```
-<font size="4"> **3. Các luồng chính:**</font>
+<font size="4"> **3. Các chức năng chính:**</font>
 
-* Luồng kích hoạt tài khoản **One Time CA VNPT SmartCA**/ lấy accessToken và credentialID
-* Luồng xác nhận giao dịch ký số
+* Kích hoạt tài khoản/lấy thông tin xác thực người dùng (accessToken và credentialId)
+* Xác nhận giao dịch ký số
 
 
 Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng chính
