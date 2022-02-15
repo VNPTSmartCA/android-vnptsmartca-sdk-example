@@ -151,7 +151,7 @@ fun getWaitingTransaction(transId: String) {
 
 App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID của giao dịch, SDK sẽ mở giao diện xác nhận ký số và gọi láy thông tin giao dịch với ID tương ứng.
 
-<font size="4"> **3.4 Hủy kết nối app với SDK:**</font>
+<font size="4"> **3.4 Hủy kết nối SDK:**</font>
 
 ```Kotlin
  override fun onDestroy() {
