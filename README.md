@@ -39,7 +39,7 @@ dependencies {
 * Xác nhận giao dịch ký số
 
 
-Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng chính
+Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng.
 ```Kotlin
 class MainActivity : AppCompatActivity() {
     var onetimeVNPTSmartCA = OnetimeVNPTSmartCA()
