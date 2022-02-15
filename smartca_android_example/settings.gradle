@@ -1,0 +1,2 @@
+rootProject.name = "smartca_android_example"
+include ':app'
