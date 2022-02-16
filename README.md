@@ -18,7 +18,7 @@ Project sử dụng Java 8
 ```gradle
 repositories {
     maven {
-        //Đường dẫn đến folder repo ở thư mục được giải nén ở bước 1
+        //Đường dẫn đến thư mục giải nén ở bước 1
         url '..path_to_android_one_time_ca_sdk_folder\\repo'
     }
     maven {
