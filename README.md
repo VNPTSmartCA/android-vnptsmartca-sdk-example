@@ -9,17 +9,17 @@ Project sử dụng Java 8
 
 <font size="4"> **2. Hướng dẫn tích hợp:**</font>
 
-<font size="3">**Bước 1:**</font> Tải về bộ tích hợp SDK và giải nén ra thư mục.
+<font size="3">**Bước 1:**</font> Tải về bộ tích hợp SDK [tại đây](https://github.com/VNPTSmartCA/android_one_time_ca_sdk/releases) và giải nén ra thư mục.
 
-<font size="3">**Bước 2:**</font> Cấu hình file <span style="color:red"> build.grandle</span> như dưới
+<font size="3">**Bước 2:**</font> Cấu hình file <span style="color:red"> build.grandle</span> (app) như dưới
 
 
 
 ```gradle
 repositories {
     maven {
-        //Đường dẫn đến folder repo ở thư mục được giải nén ở bước 1
-        url '..path_to_repo_folder\\repo'
+        //Đường dẫn đến thư mục giải nén ở bước 1
+        url '..path_to_android_one_time_ca_sdk_folder\\repo'
     }
     maven {
         url "https://storage.googleapis.com/download.flutter.io"
@@ -27,19 +27,19 @@ repositories {
 }
 
 dependencies {
-  // ...
- implementation files('..path_to_one_time_ca_lib\\onetimeca_vnpt_smartca_library-release.aar')
+    // ...
+    implementation files('..path_to_android_one_time_ca_sdk_folder\\onetimeca_vnpt_smartca_library.aar')
     debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
     releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
 }
 ```
-<font size="4"> **3. Các luồng chính:**</font>
+<font size="4"> **3. Các chức năng chính:**</font>
 
-* Luồng kích hoạt tài khoản **One Time CA VNPT SmartCA**/ lấy accessToken và credentialID
-* Luồng xác nhận giao dịch ký số
+* Kích hoạt tài khoản/lấy thông tin xác thực người dùng (accessToken và credentialId)
+* Xác nhận giao dịch ký số
 
 
-Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng chính
+Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng.
 ```Kotlin
 class MainActivity : AppCompatActivity() {
     var onetimeVNPTSmartCA = OnetimeVNPTSmartCA()
@@ -49,17 +49,19 @@ class MainActivity : AppCompatActivity() {
 
         val config = ConfigSDK()
         config.context = this
-        config.partnerId = "VNPTSmartCAPartner-add1fb94-9629-4947-b7d8-f2671b04c747"
+        config.partnerId = "xxx-xxx-xxx-xxx"   // clientId của đối tác được VNPTSmartCA cung cấp khi yêu cầu tích hợp.
+ 
         //Cấu hình môi trường Dev-test hay Production cùa SmartCA
         config.environment = SmartCAEnvironment.DEMO_ENV
         //Cấu hình ngôn ngữ app (vi/en)
-        config.lang = "vi"
+        config.lang = SmartCALanguage.VI
         onetimeVNPTSmartCA.initSDK(config)
 
         //....
+    }
 ```
 
-Cấu hình giao diện trên file  <span style="color:red"> AndroidManifest.xml</span> như dưới
+Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</span> như dưới
 
 ```xml
  <application
@@ -75,24 +77,16 @@ Cấu hình giao diện trên file  <span style="color:red"> AndroidManifest.xml
     </application>
 
 ```
-<font size="4"> **3.1 Mô tả thuộc tính:**</font>
-
-| Key       |      Kiểu giữ liệu      |  Ghi chú |
-|:--------------|:-------------|:------|
-| accessToken     |  String | Dữ liệu truyền vào để xác minh khách hàng và bảo mật thông tin|
-| creadentialId     |    String   |   Dữ liệu truyền vào API để khởi tạo giao dịch ký số với VNPT SmartCA |
-
-
-<font size="4"> **3.2 Kích hoạt tài khoản/ lấy accessToken và credentialID:**</font>
+<font size="4"> **3.1 Kích hoạt tài khoản/ lấy accessToken và credentialID:**</font>
 
 ```Kotlin
 //...
-        val btn_click_me = findViewById(R.id.button) as Button
+    val btn_click_me = findViewById(R.id.button) as Button
 
-        btn_click_me.setOnClickListener {
-            val transId = edit_text_trans.text.toString()
-            getAuthentication(transId)
-        }
+    btn_click_me.setOnClickListener {
+        val transId = edit_text_trans.text.toString()
+        getAuthentication(transId)
+    }
 //...
 
 fun getAuthentication(transId: String) {
@@ -125,7 +119,7 @@ fun getAuthentication(transId: String) {
 
 SDK thực hiện kiểm tra đã có tài khoản kích hoạt hay chưa và trạng thái tài khoản. SDK SmartCA mở giao diện kích hoạt tài khoản trong trường hợp chưa co kích hoạt tài khoản hoặc tài khoản hết hạn. Trong trường hợp đã có tài khoản còn hiệu lực, SDK trả về **accessToken** và **credentialID**.
 
-<font size="4"> **3.3 Xác nhận giao dịch:**</font>
+<font size="4"> **3.2 Xác nhận giao dịch:**</font>
 
 ```Kotlin
 //...
@@ -146,16 +140,83 @@ fun getWaitingTransaction(transId: String) {
         } catch (ex: Exception) {
             throw  ex;
         }
-    }
+}
 ```
 
 App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID của giao dịch, SDK sẽ mở giao diện xác nhận ký số và gọi láy thông tin giao dịch với ID tương ứng.
 
-<font size="4"> **3.4 Hủy kết nối app với SDK:**</font>
+<font size="4"> **3.3 Hủy kết nối SDK:**</font>
 
 ```Kotlin
  override fun onDestroy() {
         super.onDestroy()
         onetimeVNPTSmartCA.destroySDK()
-    }
+ }
 ```
+
+
+#### SmartCAResult
+
+| Tên        | Loại dữ liệu | Mô tả                               |
+|------------|--------------|-------------------------------------|
+| status     | Int          | Trạng thái của dữ liệu trả về       |
+| statusDesc | String       | Mô tả trạng thái của dữ liệu trả về |
+| data       | String       | Dữ liệu trả về                      |
+
+#### SmartCAResultCode
+
+| Tên                | Mã lỗi |
+|--------------------|--------|
+| UNKNOWN_ERROR_CODE | 2      |
+| USER_CANCEL_CODE   | 1      |
+| SUCCESS_CODE       | 0      |
+
+#### Giải thích các tham số sử dụng
+
+| Tham số  | Mô tả                                                                        |
+|----------|------------------------------------------------------------------------------|
+| tranId   | ID của giao dịch chờ ký số                                                   |
+| clientId | ID được VNPTSmartCA cung cấp khi yêu cầu tích hợp, được gửi kèm trong email. |
+
+#### Bảng mã trạng thái gửi về
+
+| Mã    | Mô tả                                      |
+|-------|--------------------------------------------|
+| 0     | Success                                    |
+| 1     | User rejected                              |
+| 2     | Unknown error                              |
+| 3     | Device not found                           |
+| 4     | Can not sign key challenge                 |
+| 5     | PIN fail count                             |
+| 6     | KAK Not found                              |
+| 7     | PIN Not found                              |
+| 8     | Token expired                              |
+| 30000 | Client not found in system                 |
+| 60000 | Credential not exist                       |
+| 60001 | Credential not match identity              |
+| 60002 | Credential no result                       |
+| 60003 | Credential status invalid                  |
+| 61000 | Credential assign key failed               |
+| 62000 | Signature transaction not found            |
+| 62001 | Signature transaction not match identity   |
+| 62002 | Signature transaction expired              |
+| 62003 | Signature transaction not waiting          |
+| 62010 | Signature data request invalid format      |
+| 63000 | Credential sign signer authen failed       |
+| 63001 | Credential sign init hash signer failed    |
+| 63002 | Credential sign file upload failed         |
+| 64000 | Credential sign file not support file type |
+| 64001 | Credential acceptance generate file failed |
+| 64002 | Credential acceptance transaction exist    |
+
+## Tác giả
+
+VNPT SmartCA Development Team
+
+## Bản quyền ©
+
+[Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-onetimeca-sdk-example/blob/master/LICENSE).
+
+## Liên hệ - Hỗ trợ
+
+email: smartca.vnptit@gmail.com
