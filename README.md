@@ -77,15 +77,7 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
     </application>
 
 ```
-<font size="4"> **3.1 Mô tả thuộc tính:**</font>
-
-| Key       |      Kiểu giữ liệu      |  Ghi chú |
-|:--------------|:-------------|:------|
-| accessToken     |  String | Dữ liệu truyền vào để xác minh khách hàng và bảo mật thông tin|
-| creadentialId     |    String   |   Dữ liệu truyền vào API để khởi tạo giao dịch ký số với VNPT SmartCA |
-
-
-<font size="4"> **3.2 Kích hoạt tài khoản/ lấy accessToken và credentialID:**</font>
+<font size="4"> **3.1 Kích hoạt tài khoản/ lấy accessToken và credentialID:**</font>
 
 ```Kotlin
 //...
@@ -127,7 +119,7 @@ fun getAuthentication(transId: String) {
 
 SDK thực hiện kiểm tra đã có tài khoản kích hoạt hay chưa và trạng thái tài khoản. SDK SmartCA mở giao diện kích hoạt tài khoản trong trường hợp chưa co kích hoạt tài khoản hoặc tài khoản hết hạn. Trong trường hợp đã có tài khoản còn hiệu lực, SDK trả về **accessToken** và **credentialID**.
 
-<font size="4"> **3.3 Xác nhận giao dịch:**</font>
+<font size="4"> **3.2 Xác nhận giao dịch:**</font>
 
 ```Kotlin
 //...
@@ -153,7 +145,7 @@ fun getWaitingTransaction(transId: String) {
 
 App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID của giao dịch, SDK sẽ mở giao diện xác nhận ký số và gọi láy thông tin giao dịch với ID tương ứng.
 
-<font size="4"> **3.4 Hủy kết nối SDK:**</font>
+<font size="4"> **3.3 Hủy kết nối SDK:**</font>
 
 ```Kotlin
  override fun onDestroy() {
