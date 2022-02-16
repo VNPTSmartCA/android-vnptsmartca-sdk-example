@@ -160,3 +160,70 @@ App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID củ
         onetimeVNPTSmartCA.destroySDK()
  }
 ```
+
+
+#### SmartCAResult
+
+| Tên        | Loại dữ liệu | Mô tả                               |
+|------------|--------------|-------------------------------------|
+| status     | Int          | Trạng thái của dữ liệu trả về       |
+| statusDesc | String       | Mô tả trạng thái của dữ liệu trả về |
+| data       | String       | Dữ liệu trả về                      |
+
+#### SmartCAResultCode
+
+| Tên                | Mã lỗi |
+|--------------------|--------|
+| UNKNOWN_ERROR_CODE | 2      |
+| USER_CANCEL_CODE   | 1      |
+| SUCCESS_CODE       | 0      |
+
+#### Giải thích các tham số sử dụng
+
+| Tham số  | Mô tả                                                                        |
+|----------|------------------------------------------------------------------------------|
+| tranId   | ID của giao dịch chờ ký số                                                   |
+| clientId | ID được VNPTSmartCA cung cấp khi yêu cầu tích hợp, được gửi kèm trong email. |
+
+#### Bảng mã trạng thái gửi về
+
+| Mã    | Mô tả                                      |
+|-------|--------------------------------------------|
+| 0     | Success                                    |
+| 1     | User rejected                              |
+| 2     | Unknown error                              |
+| 3     | Device not found                           |
+| 4     | Can not sign key challenge                 |
+| 5     | PIN fail count                             |
+| 6     | KAK Not found                              |
+| 7     | PIN Not found                              |
+| 8     | Token expired                              |
+| 30000 | Client not found in system                 |
+| 60000 | Credential not exist                       |
+| 60001 | Credential not match identity              |
+| 60002 | Credential no result                       |
+| 60003 | Credential status invalid                  |
+| 61000 | Credential assign key failed               |
+| 62000 | Signature transaction not found            |
+| 62001 | Signature transaction not match identity   |
+| 62002 | Signature transaction expired              |
+| 62003 | Signature transaction not waiting          |
+| 62010 | Signature data request invalid format      |
+| 63000 | Credential sign signer authen failed       |
+| 63001 | Credential sign init hash signer failed    |
+| 63002 | Credential sign file upload failed         |
+| 64000 | Credential sign file not support file type |
+| 64001 | Credential acceptance generate file failed |
+| 64002 | Credential acceptance transaction exist    |
+
+## Tác giả
+
+VNPT SmartCA Development Team
+
+## Bản quyền ©
+
+[Copyright (c) 2021 VNPTSmartCA](https://github.com/VNPTSmartCA/ios-onetimeca-sdk-example/blob/master/LICENSE).
+
+## Liên hệ - Hỗ trợ
+
+email: smartca.vnptit@gmail.com
