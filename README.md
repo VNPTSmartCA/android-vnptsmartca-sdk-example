@@ -1,5 +1,6 @@
 <h1>Tài liệu tích hợp OneTimeCA SDK Android</h1>	
 
+Code mẫu sử dụng ngôn ngữ Kotlin
 
 <font size="4"> **1. Yêu cầu:**</font>
 
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         val config = ConfigSDK()
         config.context = this
-        config.partnerId = "xxx-xxx-xxx-xxx"   // clientId của đối tác được VNPTSmartCA cung cấp khi yêu cầu tích hợp.
+        config.partnerId = "xxx-xxx-xxx-xxx" // clientId của đối tác được VNPTSmartCA cung cấp khi yêu cầu tích hợp.
  
         //Cấu hình môi trường Dev-test hay Production cùa SmartCA
         config.environment = SmartCAEnvironment.DEMO_ENV
@@ -77,8 +78,9 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
     </application>
 
 ```
-<font size="4"> **3.1 Kích hoạt tài khoản/ lấy accessToken và credentialID:**</font>
+<font size="4"> **3.1 Kích hoạt tài khoản/lấy accessToken và credentialId của người dùng:**</font>
 
+SDK sẽ thực hiện kiểm tra trạng thái tài khoản và chứng thư của khách hàng như: đã kích hoạt hay chưa, chứng thư hợp lệ hay không, tự động làm mới token khi hết hạn,.... Thành công SDK sẽ trả về **accessToken** và **credentialId** của người dùng. 
 ```Kotlin
 //...
     val btn_click_me = findViewById(R.id.button) as Button
@@ -91,23 +93,24 @@ Thêm FlutterActivity trong file  <span style="color:red"> AndroidManifest.xml</
 
 fun getAuthentication(transId: String) {
         try {
-            // SDK tự động xử lý các trường hợp về token: hết hạn, chưa kích hoạt,...
+            // SDK tự động xử lý các trường hợp về: chưa kích hoạt, hết hạn token...
             onetimeVNPTSmartCA.getAuthentication { result ->
-                // Nếu ko lấy được token, credential thì mới show giao diện
+                // Nếu ko lấy được token, credentialId sẽ hiển thị giao diện thông báo
                 when (result.status) {
                     SmartCAResultCode.SUCCESS_CODE -> {
                         // SDK trả lại token, credential của khách hàng
-                        // Đối tác tạo transaction cho khách hàng
-
+                        
                         val obj = Json.decodeFromString(CallbackResult.serializer(), result.data.toString())
                         val token  = obj.accessToken
                         val credentialId = obj.credentialId
 
-                        getWaitingTransaction(transId)
-
+                        // Đối tác tạo giao dịch cho khách hàng và lấy transId
+                        // ...
+                        // Sau đó gọi getWaitingTransaction để người dùng xác nhận giao dịch
+                        // ...
                     }
                     else -> {
-                        // SDK SmartCA sẽ tự động show giao diện
+                        // Xử lý lỗi
                     }
                 }
             }
@@ -117,33 +120,25 @@ fun getAuthentication(transId: String) {
     }
 ```
 
-SDK thực hiện kiểm tra đã có tài khoản kích hoạt hay chưa và trạng thái tài khoản. SDK SmartCA mở giao diện kích hoạt tài khoản trong trường hợp chưa co kích hoạt tài khoản hoặc tài khoản hết hạn. Trong trường hợp đã có tài khoản còn hiệu lực, SDK trả về **accessToken** và **credentialID**.
-
 <font size="4"> **3.2 Xác nhận giao dịch:**</font>
 
+Sau khi lấy được **accessToken** và **credentialId** của người dùng từ **getAuthentication** Đối tác tích hợp tạo giao dịch ký số cho khách hàng, lấy **transId** sau đó gọi hàm xác nhận ký số **getWaitingTransaction** như sau:
+
 ```Kotlin
-//...
 
-fun getWaitingTransaction(transId: String) {
-        try {
-            onetimeVNPTSmartCA.getWaitingTransaction(transId) { result ->
-            //Lấy kết quả quá trình xác nhận ký số
-                when (result.status) {
-                    SmartCAResultCode.SUCCESS_CODE -> {
-                        // Xử lý khi confirm thành công
-                    }
-                    else -> {
-                        // Xử lý khi confirm thất bại
-                    }
-                }
+    //...
+
+    onetimeVNPTSmartCA.getWaitingTransaction(transId) { result ->
+        when (result.status) {
+            SmartCAResultCode.SUCCESS_CODE -> {
+                // Xử lý khi confirm thành công
             }
-        } catch (ex: Exception) {
-            throw  ex;
+            else -> {
+                // Xử lý khi confirm thất bại
+            }
         }
-}
+    }
 ```
-
-App tích hợp gọi hàm **getWaitingTransaction** với tham số là ID của giao dịch, SDK sẽ mở giao diện xác nhận ký số và gọi láy thông tin giao dịch với ID tương ứng.
 
 <font size="4"> **3.3 Hủy kết nối SDK:**</font>
 
