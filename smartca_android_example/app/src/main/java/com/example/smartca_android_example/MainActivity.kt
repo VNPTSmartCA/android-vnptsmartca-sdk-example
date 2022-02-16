@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         val config = ConfigSDK()
         config.context = this
-        config.partnerId = "VNPTSmartCAPartner-add1fb94-9629-4947-b7d8-f2671b04c747"
+        //Cấu hình partnerId, partnerId của đối tác được VNPTSmartCA cung cấp khi yêu cầu tích hợp.
+        config.partnerId = "xxx-xxx-xxx-xxx"
         //Cấu hình môi trường Dev-test hay Production cùa SmartCA
         config.environment = SmartCAEnvironment.DEMO_ENV
         //Cấu hình ngôn ngữ app (vi/en)
