@@ -9,7 +9,7 @@ Project sử dụng Java 8
 
 <font size="4"> **2. Hướng dẫn tích hợp:**</font>
 
-<font size="3">**Bước 1:**</font> Tải về bộ tích hợp SDK [tại dây](https://github.com/VNPTSmartCA/android_one_time_ca_sdk) và giải nén ra thư mục.
+<font size="3">**Bước 1:**</font> Tải về bộ tích hợp SDK [tại dây](https://github.com/VNPTSmartCA/android_one_time_ca_sdk/releases) và giải nén ra thư mục.
 
 <font size="3">**Bước 2:**</font> Cấu hình file <span style="color:red"> build.grandle</span> như dưới
 
