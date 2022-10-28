@@ -38,6 +38,9 @@ dependencies {
 
 * Kích hoạt tài khoản/lấy thông tin xác thực người dùng (accessToken và credentialId)
 * Xác nhận giao dịch ký số
+* Thông tin người dùng
+* Lịch sử giao dịch
+* Chứng thư số
 
 
 Thêm đoạn code dưới đây tại Activity muốn kết nối với SDK trước khi sử dụng các chức năng.
@@ -139,8 +142,26 @@ Sau khi lấy được **accessToken** và **credentialId** của người dùng
         }
     }
 ```
+<font size="4"> **3.3 Lấy thông tin của người dùng:**</font>
+```Kotlin
 
-<font size="4"> **3.3 Hủy kết nối SDK:**</font>
+```
+<font size="4"> **3.4 Lấy thông tin của người dùng:**</font>
+```Kotlin
+
+```
+
+<font size="4"> **3.5 Lấy thông tin chứng thư số:**</font>
+```Kotlin
+
+```
+
+<font size="4"> **3.6 Lịch sử thông tin giao dịch:**</font>
+```Kotlin
+
+```
+
+<font size="4"> **3.7 Hủy kết nối SDK:**</font>
 
 ```Kotlin
  override fun onDestroy() {
