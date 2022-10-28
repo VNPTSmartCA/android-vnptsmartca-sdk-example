@@ -210,7 +210,7 @@ Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy th
             }
 ```
 
-<font size="4"> **3.6 Giao dienj chung:**</font>
+<font size="4"> **3.6 Giao diện gộp chung:**</font>
 
 Đối tác có thể tích hợp giao diện có sẵn bao gồm  **Chức thư số**, **Lịch sử giao dịch**, **Thông tin tài khoản** như sau:
 
