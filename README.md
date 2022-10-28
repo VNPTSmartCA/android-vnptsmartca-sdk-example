@@ -143,6 +143,7 @@ Sau khi lấy được **accessToken** và **credentialId** của người dùng
     }
 ```
 <font size="4"> **3.3 Lấy thông tin của người dùng:**</font>
+
 Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy thông tin người dùng đã được đăng ký như sau:
 
 ```Kotlin
@@ -161,6 +162,7 @@ Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy th
     
 ```
 <font size="4"> **3.4 Lịch sử thông tin giao dịch:**</font>
+
  Đối tác tích hợp lấy thông tin lịch sử các giao dịch như sau:
  
 ```Kotlin
@@ -185,6 +187,7 @@ Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy th
 ```
 
 <font size="4"> **3.5 Lấy thông tin chứng thư số:**</font>
+
 Đối tách tích hợp lấy thông tin chứng thư số như sau:
 
 ```Kotlin
@@ -208,6 +211,7 @@ Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy th
 ```
 
 <font size="4"> **3.6 Giao dienj chung:**</font>
+
 Đối tác có thể tích hợp giao diện có sẵn bao gồm  **Chức thư số**, **Lịch sử giao dịch**, **Thông tin tài khoản** như sau:
 
 ```Kotlin
