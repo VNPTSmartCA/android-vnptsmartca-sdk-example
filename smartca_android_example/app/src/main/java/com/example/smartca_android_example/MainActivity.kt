@@ -122,10 +122,10 @@ class MainActivity : AppCompatActivity() {
                         onetimeVNPTSmartCA.getMainInfo { result ->
                             when (result.status) {
                                 SmartCAResultCode.SUCCESS_CODE -> {
-
+                                    // Xử lý khi confirm thành công
                                 }
                                 else -> {
-                                    // Error here
+                                    // Xử lý khi confirm thất bại
                                 }
                             }
                         }

@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "appmire.be.flutterjailbreakdetection",
+    "module": "flutter_jailbreak_detection_debug",
+    "version": "1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "debugVariantDebugApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "io.flutter",
+          "module": "flutter_embedding_debug",
+          "version": {
+            "requires": "1.0.0-c08d7d5efc9aa6eb3c30cfb3be6dc09bca5e7631"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "flutter_jailbreak_detection_debug-1.0.aar",
+          "url": "flutter_jailbreak_detection_debug-1.0.aar",
+          "size": 7555,
+          "sha512": "13715d10541af30142c9db620ca62589c77bea85205e5cdca9d83308928d9edc67073354688ea7aa4c7e7b6e5f77e663ce2c76b0d353cf87541f797c01ade6fb",
+          "sha256": "8e07155c656fafa2d461fc1767ea622c67ec9c5004267840a02eb656697777ea",
+          "sha1": "87140ccba9ddca857a900d0d0c534ef42742a2f6",
+          "md5": "4c1798a4155374ee967e24548927500b"
+        }
+      ]
+    },
+    {
+      "name": "debugVariantDebugRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.flutter",
+          "module": "flutter_embedding_debug",
+          "version": {
+            "requires": "1.0.0-c08d7d5efc9aa6eb3c30cfb3be6dc09bca5e7631"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk7",
+          "version": {
+            "requires": "1.4.31"
+          }
+        },
+        {
+          "group": "com.github.scottyab",
+          "module": "rootbeer",
+          "version": {
+            "requires": "0.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "flutter_jailbreak_detection_debug-1.0.aar",
+          "url": "flutter_jailbreak_detection_debug-1.0.aar",
+          "size": 7555,
+          "sha512": "13715d10541af30142c9db620ca62589c77bea85205e5cdca9d83308928d9edc67073354688ea7aa4c7e7b6e5f77e663ce2c76b0d353cf87541f797c01ade6fb",
+          "sha256": "8e07155c656fafa2d461fc1767ea622c67ec9c5004267840a02eb656697777ea",
+          "sha1": "87140ccba9ddca857a900d0d0c534ef42742a2f6",
+          "md5": "4c1798a4155374ee967e24548927500b"
+        }
+      ]
+    }
+  ]
+}
