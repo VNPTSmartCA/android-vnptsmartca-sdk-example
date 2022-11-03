@@ -210,14 +210,11 @@ Sau khi kích hoạt tài khoản thành công, Đối tác tích hợp lấy th
             }
 ```
 
-<<<<<<< HEAD
+
 <font size="4"> **3.6 Giao diện gộp chung:**</font>
 
 Đối tác có thể tích hợp giao diện có sẵn bao gồm các chức năng **Chứng thư số**, **Lịch sử giao dịch**, **Thông tin tài khoản** như sau:
-=======
-<font size="4"> **3.6 Giao dienj chung:**</font>
-Đối tác có thể tích hợp giao diện có sẵn bao gồm  **Chức thư số**, **Lịch sử giao dịch**, **Thông tin tài khoản** như sau:
->>>>>>> parent of ef30c9c (Update README.md)
+
 
 ```Kotlin
  onetimeVNPTSmartCA.getAuthentication { result ->
