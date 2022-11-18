@@ -141,8 +141,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         onetimeVNPTSmartCA.destroySDK()
     }
-
-
 }
 
 @Serializable
