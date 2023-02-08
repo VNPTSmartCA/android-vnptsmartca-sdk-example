@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import com.onetimeca.vnpt_smartca.*
+import com.vnpt.smartca.*
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
-    var onetimeVNPTSmartCA = OnetimeVNPTSmartCA()
+    var vnptSmartCA =  VNPTSmartCASDK()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         config.lang = SmartCALanguage.VI
         println( config.lang)
 
-        onetimeVNPTSmartCA.initSDK(config)
+        vnptSmartCA.initSDK(config)
 
         btn_click_me.setOnClickListener {
             val transId = edit_text_trans.text.toString()
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     fun getAuthentication(transId: String) {
         try {
             // SDK tự động xử lý các trường hợp về token: hết hạn, chưa kích hoạt,...
-            onetimeVNPTSmartCA.getAuthentication { result ->
+            vnptSmartCA.getAuthentication { result ->
                 // Nếu ko lấy được token, credential thì mới show giao diện
                 when (result.status) {
                     SmartCAResultCode.SUCCESS_CODE -> {
@@ -87,12 +87,12 @@ class MainActivity : AppCompatActivity() {
 
     fun getWaitingTransaction(transId: String) {
         try {
-            onetimeVNPTSmartCA.getAuthentication { result ->
+            vnptSmartCA.getAuthentication { result ->
                 when (result.status) {
                     SmartCAResultCode.SUCCESS_CODE -> {
 
                         // Lấy được token, credential thì mới gọi getWaitingTransaction
-                        onetimeVNPTSmartCA.getWaitingTransaction(transId) { result ->
+                        vnptSmartCA.getWaitingTransaction(transId) { result ->
                             when (result.status) {
                                 SmartCAResultCode.SUCCESS_CODE -> {
                                     // Xử lý khi confirm thành công
@@ -116,10 +116,10 @@ class MainActivity : AppCompatActivity() {
 
     fun getMainInfo() {
         try {
-            onetimeVNPTSmartCA.getAuthentication { result ->
+            vnptSmartCA.getAuthentication { result ->
                 when (result.status) {
                     SmartCAResultCode.SUCCESS_CODE -> {
-                        onetimeVNPTSmartCA.getMainInfo { result ->
+                        vnptSmartCA.getMainInfo { result ->
                             when (result.status) {
                                 SmartCAResultCode.SUCCESS_CODE -> {
                                     // Xử lý khi confirm thành công
@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        onetimeVNPTSmartCA.destroySDK()
+        vnptSmartCA.destroySDK()
     }
 }
 
