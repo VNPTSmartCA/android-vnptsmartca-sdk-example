@@ -27,7 +27,7 @@
           "group": "io.flutter",
           "module": "flutter_embedding_profile",
           "version": {
-            "requires": "1.0.0-c08d7d5efc9aa6eb3c30cfb3be6dc09bca5e7631"
+            "requires": "1.0.0-8f2221fbef28b478debb78dd233f5250b220ca99"
           }
         }
       ],
@@ -35,11 +35,11 @@
         {
           "name": "path_provider_android_profile-1.0.aar",
           "url": "path_provider_android_profile-1.0.aar",
-          "size": 12415,
-          "sha512": "a29f3cf1741fd0edd85fed9a93957ab9ecc31f356c36ab4085582df8aee147cbf3a6f6933cf949557b5beb73e71f4b1b32ed33863e9bc8287df66c35c4d810c5",
-          "sha256": "47f0fe5d1a611ffcd75fd504a3e242c6e4d4e4701c1ebad24226df57b07fbdf4",
-          "sha1": "2b12fb65ce3dcf2e8654ec054e574f6e68f11509",
-          "md5": "c34316c857c0c32a2ae62810ed7289a4"
+          "size": 12405,
+          "sha512": "a04cdc4b4c007aafb7203c58b37c46b1f8aee7836c0dc1daf873efb68e263020ad5b42cc9d1633da575c78bb6c883070f2d74bbdfcadf619402a07e8f2fcbcab",
+          "sha256": "c754bd30a281dd2e7a680e83ec39f137acc7fdac31cb30ffeb88e9a04021bc73",
+          "sha1": "60282b8749ed70f611731196562aede36cb097cb",
+          "md5": "48ec5291f0de03593b437517e2afad03"
         }
       ]
     },
@@ -56,21 +56,14 @@
           "group": "io.flutter",
           "module": "flutter_embedding_profile",
           "version": {
-            "requires": "1.0.0-c08d7d5efc9aa6eb3c30cfb3be6dc09bca5e7631"
+            "requires": "1.0.0-8f2221fbef28b478debb78dd233f5250b220ca99"
           }
         },
         {
           "group": "androidx.annotation",
           "module": "annotation",
           "version": {
-            "requires": "1.1.0"
-          }
-        },
-        {
-          "group": "com.google.guava",
-          "module": "guava",
-          "version": {
-            "requires": "28.1-android"
+            "requires": "1.5.0"
           }
         }
       ],
@@ -78,11 +71,11 @@
         {
           "name": "path_provider_android_profile-1.0.aar",
           "url": "path_provider_android_profile-1.0.aar",
-          "size": 12415,
-          "sha512": "a29f3cf1741fd0edd85fed9a93957ab9ecc31f356c36ab4085582df8aee147cbf3a6f6933cf949557b5beb73e71f4b1b32ed33863e9bc8287df66c35c4d810c5",
-          "sha256": "47f0fe5d1a611ffcd75fd504a3e242c6e4d4e4701c1ebad24226df57b07fbdf4",
-          "sha1": "2b12fb65ce3dcf2e8654ec054e574f6e68f11509",
-          "md5": "c34316c857c0c32a2ae62810ed7289a4"
+          "size": 12405,
+          "sha512": "a04cdc4b4c007aafb7203c58b37c46b1f8aee7836c0dc1daf873efb68e263020ad5b42cc9d1633da575c78bb6c883070f2d74bbdfcadf619402a07e8f2fcbcab",
+          "sha256": "c754bd30a281dd2e7a680e83ec39f137acc7fdac31cb30ffeb88e9a04021bc73",
+          "sha1": "60282b8749ed70f611731196562aede36cb097cb",
+          "md5": "48ec5291f0de03593b437517e2afad03"
         }
       ]
     }
