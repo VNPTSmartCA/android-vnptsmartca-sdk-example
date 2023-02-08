@@ -15,7 +15,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -69,11 +68,12 @@ dependencies {
     implementation 'androidx.biometric:biometric:1.0.1'
     implementation files('libs/ekyc_sdk-release-v3.2.4.aar')
     implementation files('libs/sdk_vnpt_smartca_library-debug.aar')
+    //implementation files('libs/sdk_vnpt_smartca_library-release.aar')
     testImplementation 'junit:junit:4.+'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    debugImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_debug:1.0'
-    releaseImplementation 'com.vnpt.vnpt_smartca_sdk.onetime_ca:flutter_release:1.0'
+    debugImplementation 'com.vnpt.vnpt_smartca_sdk:flutter_debug:1.0'
+    releaseImplementation 'com.vnpt.vnpt_smartca_sdk:flutter_release:1.0'
 }
